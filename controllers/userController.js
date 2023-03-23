@@ -65,5 +65,38 @@ module.exports = {
       });
   },
 
-
+  //Add friend tro
+  addFriend(req, res) {
+    console.log('You are adding an assignment');
+    console.log(req.body);
+    User.findOneAndUpdate(
+      { _id: req.params.friendId },
+      { $addToSet: { friends: req.body } },
+      { runValidators: true, new: true }
+    )
+      .then((friend) =>
+        !friend
+          ? res
+              .status(404)
+              .json({ message: 'No friend found with that ID :(' })
+          : res.json(friend)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
+  // Remove friend from a user
+  removeFriend(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.friendId },
+      { $pull: { friends: { friendId: req.params.friendId } } },
+      { runValidators: true, new: true }
+    )
+      .then((friend) =>
+        !friend
+          ? res
+              .status(404)
+              .json({ message: 'No friend found with that ID :(' })
+          : res.json(student)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
 };
