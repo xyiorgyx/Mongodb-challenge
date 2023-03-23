@@ -8,13 +8,13 @@ const thoughtSchema = new Schema(
         thoughtText: {
             type: String,
             required: true,
-            maxLength: 280
+            minLength: 1,
+            maxLength: 280,
         },
         createdAt: {
             type: Date,
             default: Date.now,
         },
-        //need to fix this so it connects right
         username: {
             type: Schema.Types.ObjectId,
             required: true,

@@ -8,7 +8,7 @@ module.exports = {
             .then((thoughts) => res.json(thoughts))
             .catch((err) => res.status(500).json(err));
     },
-    
+
     // Get a thought
     getSingleThought(req, res) {
         Thought.findOne({ _id: req.params.thoughtId })
@@ -57,8 +57,8 @@ module.exports = {
             )
             .catch((err) => res.status(500).json(err));
     },
- 
-    //---------------------------------------------------------
+
+    //Creates a reaction
 
     createReaction(req, res) {
         console.log('You are adding an reaction');
@@ -78,7 +78,7 @@ module.exports = {
             .catch((err) => res.status(500).json(err));
     },
 
-    // Remove assignment from a student
+    // Removes reaction
     deleteReaction(req, res) {
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
