@@ -14,7 +14,10 @@ const {
 router
   .route('/')
   .get(getThought)
-  .post(createThought);
+
+router
+  .route("/:userId")
+  .post(createThought)
 
 // /api/thoughts/:thoughtId
 router

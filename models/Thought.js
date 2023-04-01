@@ -16,9 +16,8 @@ const thoughtSchema = new Schema(
             default: Date.now,
         },
         username: {
-            type: Schema.Types.ObjectId,
+            type: String,
             required: true,
-            ref: 'User'
         },
         reactions: [reactionSchema]
     },
@@ -27,6 +26,7 @@ const thoughtSchema = new Schema(
             getters: true,
             virtuals: true
         },
+        id: false,
     }
 );
 
@@ -36,6 +36,6 @@ thoughtSchema
         return `${this.reactions.length}`;
     });
 
-const Thought = model('thought', thoughtSchema);
+const Thought = model('Thought', thoughtSchema);
 
 module.exports = Thought;
