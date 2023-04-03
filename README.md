@@ -1,7 +1,7 @@
 # Mongodb challenge
  
 ## Description
-This server acts as social media data storage. It allows users to be saved as well as their information. This information includes user and user inforamtion, thoughts, adding friends toother accounts and reactions to their thoughts.
+This server acts as social media data storage. It allows users to be save as well as update, and delete their information. This information includes user and user information, thoughts, adding friends accounts and reactions to other users thoughts.
 
 ## Instructions
 
